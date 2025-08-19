@@ -1,10 +1,5 @@
 package main
 
-import (
-	"fmt"
-	"net/url"
-)
-
 //TIP <p>To run your code, right-click the code and select <b>Run</b>.</p> <p>Alternatively, click
 // the <icon src="AllIcons.Actions.Execute"/> icon in the gutter and select the <b>Run</b> menu item from here.</p>
 
@@ -313,60 +308,61 @@ func main() {
 		}
 	*/
 	/*
-					Working with files
+						Working with files
 
-				content := "This is some content I need to put in the file"
-				file, err := os.Create("./login_token.txt")
-				if err != nil {
-					panic(err)
-				} else {
-					length, err := io.WriteString(file, content)
+					content := "This is some content I need to put in the file"
+					file, err := os.Create("./login_token.txt")
+					if err != nil {
+						panic(err)
+					} else {
+						length, err := io.WriteString(file, content)
+						if err != nil {
+							panic(err)
+						}
+						fmt.Println(length)
+						defer file.Close()
+						fmt.Println(readFile("login_token.txt"))
+					}
+				}
+				func readFile(fileName string) string {
+					databyte, err := ioutil.ReadFile(fileName)
 					if err != nil {
 						panic(err)
 					}
-					fmt.Println(length)
-					defer file.Close()
-					fmt.Println(readFile("login_token.txt"))
+					return string(databyte)
 				}
-			}
-			func readFile(fileName string) string {
-				databyte, err := ioutil.ReadFile(fileName)
-				if err != nil {
-					panic(err)
+
+				func checkNilErr() {
+
 				}
-				return string(databyte)
+
+
+			const url = "https://www.google.com"
+			resp, err := http.Get(url)
+			if err != nil {
+				panic(err)
 			}
+			fmt.Println(resp.Status)
+			fmt.Println(resp)
+			defer resp.Body.Close()
 
-			func checkNilErr() {
-
+			data, err := ioutil.ReadAll(resp.Body)
+			if err != nil {
+				panic(err)
 			}
+			fmt.Println(string(data))
 
-
-		const url = "https://www.google.com"
-		resp, err := http.Get(url)
-		if err != nil {
-			panic(err)
-		}
-		fmt.Println(resp.Status)
-		fmt.Println(resp)
-		defer resp.Body.Close()
-
-		data, err := ioutil.ReadAll(resp.Body)
-		if err != nil {
-			panic(err)
-		}
-		fmt.Println(string(data))
+		res, _ := url.parse(myUrl, false)
+		fmt.Println(res)
+		fmt.Println(res.String())
+		fmt.Println(res.Scheme)
+		fmt.Println(res.Host)
+		fmt.Println(res.Path)
+		fmt.Println(res.Query)
+		fmt.Println(res.Fragment)
+		fmt.Println(res.RawQuery)
+		fmt.Println(res.RawFragment)
+		fmt.Println(res.RawPath)
 	*/
-	res, _ := url.parse(myUrl, false)
-	fmt.Println(res)
-	fmt.Println(res.String())
-	fmt.Println(res.Scheme)
-	fmt.Println(res.Host)
-	fmt.Println(res.Path)
-	fmt.Println(res.Query)
-	fmt.Println(res.Fragment)
-	fmt.Println(res.RawQuery)
-	fmt.Println(res.RawFragment)
-	fmt.Println(res.RawPath)
-	
+
 }
