@@ -45,7 +45,7 @@ func init() {
 
 }
 
-func insertOneMovie(movie model.Netflix) {
+func insertOneMovie(movie Netflix) {
 	inserted, err := collection.InsertOne(context.Background(), movie)
 	if err != nil {
 		panic(err)
